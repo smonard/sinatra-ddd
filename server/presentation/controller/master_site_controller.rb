@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'sinatra/json'
 require 'rack/protection'
 require 'rack/deflater'
@@ -13,7 +14,7 @@ module Presentation
       use Rack::Protection
       use Rack::Protection::AuthenticityToken
       # middleware should get added before this line
-      # 
+      #
       # controller section
       use PersonController
       # rack specification check

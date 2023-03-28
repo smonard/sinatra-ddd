@@ -51,9 +51,9 @@ task :routes do
   end
 
   def register_route(klass)
-    sub_routes = klass.routes.map do |method, paths|
-      [method, paths.map { |path| "#{@current_map.chomp('/')}#{path[0]}" }]
-    end.to_h
+    sub_routes = klass.routes.transform_values do |paths|
+      paths.map { |path| "#{@current_map.chomp('/')}#{path[0]}" }
+    end
     @routes[@current_map].merge!(klass.to_s => sub_routes)
   end
 
