@@ -54,3 +54,6 @@ group :development, :test do
   # code analyzer for rspec tests
   gem 'rubocop-rspec'
 end
+
+# Downgraded psych to enable old features
+gem 'psych', '< 4'

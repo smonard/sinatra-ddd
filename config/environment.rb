@@ -16,7 +16,7 @@ configure :development, :production do
   set :sessions,
       httponly: true,
       secure: production?,
-      expire_after: 31_557_600, # 1 year
+      expire_after: 86_400, # 1 day
       secret: ENV['SESSION_SECRET']
   set :session_store, Rack::Session::Pool
   set :views, "#{settings.root}/server/presentation/view"

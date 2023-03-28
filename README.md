@@ -59,25 +59,12 @@ rake rspec spec/unit
 ```
 rake routes
 ```
-General routes (routes to single resources) are defined in `config/routes.rb`. 
-  Specific routes (methods to a specific resource) are defined in the correspondent controller.
-
-The file `config/routes.rb` describes a Proc object that makes possible the routings searching task, but the server is going to work fine as long as each general route (in fact, a rack application) does exist in a rack scope (e.g. main `config.ru`), also it should be correctly configured: ( `map('/some-resource') { run SomeResourceController }` )
-
-```ruby
-{ |_|
-  [
-    { path: '/persons/', handler: Presentation::Controller::PersonController },
-    { path: '/', handler: Presentation::Controller::ApplicationController }
-  
-  ].each { |route| map(route[:path]) { run route[:handler] } }
-}
-```
+It is a manual mechanism (rake task in the Rakefile) that reads the definition of every route defined in all middewares included in the server, it takes the `Presentation::Controller::MasterSiteController` class as the root container.
 
 ### Database tasks
 These tasks are defined in the `config/db/database.rake` file. ActiveRecord has been used to perform the operations. 
 
-It is recommended to use a gem (on top of ActiveRecord) that provides these database functions.
+In this application a manual mechanism has been implemented, however, it is recommended to use a gem (on top of ActiveRecord) that provides these database functions.
 A good example could be `otr-activerecord` or `standalone_migrations`
 
 #### Create database

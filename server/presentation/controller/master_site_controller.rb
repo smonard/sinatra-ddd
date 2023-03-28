@@ -1,24 +1,30 @@
 # frozen_string_literal: true
+require 'sinatra/json'
+require 'rack/protection'
+require 'rack/deflater'
 
-require 'presentation/controller/application_controller'
 require 'presentation/controller/person_controller'
 
 module Presentation
   module Controller
-    # Controller that handles requests about Person-related actions
-    class MasterSiteController < ApplicationController
+    # Controller that handles default routes and API requests
+    class MasterSiteController < Sinatra::Application
+      use Rack::Deflater
+      use Rack::Protection
+      use Rack::Protection::AuthenticityToken
+      # middleware should get added before this line
+      # 
+      # controller section
       use PersonController
-
-      def initialize(people = Domain::People.new)
-        super
-        @people = people
-      end
+      # rack specification check
+      use Rack::Lint
 
       get '/' do
         erb :index
       end
 
-      # Check this. Aside of halting requests on non existent resources,
+      # Verify this.
+      # Besides of halting requests on non existent resources,
       # It prevents assets being searched in the controller routes,
       # Avoiding: RuntimeError - downstream app not set; 500
       get '/*' do
