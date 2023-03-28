@@ -6,7 +6,8 @@ module Presentation
   module Controller
     # Controller that handles requests about Person-related actions
     class PersonController < Sinatra::Base
-      # These controllers are tied to the server life-cycle, they do not get created for each request, they get created as part of the server
+      # These controllers are tied to the server life-cycle, they do not get created for each request,
+      #  they get created as part of the server
       # def initialize(app, *args, &block)
       #   super app, *args, &block
       # end

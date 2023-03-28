@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_record'
-require_relative 'entity'
+require 'infrastructure/database/model/entity'
 
 module Infrastructure
   module Database

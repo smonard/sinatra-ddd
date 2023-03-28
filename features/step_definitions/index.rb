@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'rubygems'
 require 'selenium-webdriver'
 
 Before do
@@ -14,5 +15,5 @@ When('the main page is accessed') do
 end
 
 Then('a greeting is displayed') do
-  expect(@driver.find_element(id: 'greetings').text).to eq('Hello :)')
+  expect(@driver.find_element(id: 'greetings').text).to eq('Hello world :)')
 end
