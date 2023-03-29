@@ -6,6 +6,7 @@ require 'sinatra'
 require 'faker'
 require 'factory_bot'
 require 'rake'
+require 'pry'
 require_relative '../config/environment'
 
 load 'config/db/database.rake' # Check this

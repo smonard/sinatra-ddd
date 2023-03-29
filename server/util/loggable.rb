@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'logging'
-require 'forwardable'
 
 # Logger configurations module
 module Logging
@@ -20,7 +19,7 @@ module Logging
   Logging.appenders.stdout(
     'stdout',
     layout: Logging.layouts.pattern(
-      pattern: '[%d] level=%-5l artifact=%c -> %m\n',
+      pattern: 'level=%-5l timespan=%d artifact=%c message=%m\n',
       color_scheme: 'custom'
     )
   )
@@ -36,6 +35,7 @@ module Logging
     def_delegator :logger, :warn, :log_warn
     def_delegator :logger, :error, :log_error
     def_delegator :logger, :fatal, :log_fatal
+    def_delegator :logger, :log, :log
 
     def logger
       @logger ||= Logging.logger[self].add_appenders 'stdout'

@@ -23,7 +23,7 @@ RSpec.describe Presentation::Controller::MasterSiteController do
         get "/#{Faker::Name.last_name}"
 
         expect(last_response).to be_not_found
-        expect(last_response.body).to eq('Not found')
+        expect(last_response.body).to eq('This is nowhere to be found.')
       end
     end
   end
