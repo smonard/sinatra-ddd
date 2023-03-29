@@ -9,6 +9,7 @@ require 'presentation/controller/person_controller'
 module Presentation
   module Controller
     # Controller that handles default routes and API requests
+    # it is the master controller for the entire Application
     class MasterSiteController < Sinatra::Application
       use Rack::Deflater
       use Rack::Protection

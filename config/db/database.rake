@@ -53,7 +53,7 @@ namespace :db do
     puts 'Database deleted.'
   end
 
-  desc 'Roolback migration'
+  desc 'Rollback migration'
   task :rollback do
     ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::MigrationContext.new('config/db/migrate/', ActiveRecord::SchemaMigration).rollback
@@ -73,7 +73,7 @@ namespace :db do
         # frozen_string_literal: true
         
         # Migration for #{name}
-        class #{migration_class} < ActiveRecord::Migration[6.1]
+        class #{migration_class} < ActiveRecord::Migration[7.0]
           def change
 
           end

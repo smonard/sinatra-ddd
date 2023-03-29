@@ -25,6 +25,7 @@ Before running, ensure a .env file is present (See ```.env.example``` for detail
 
 ### Run the project
 
+For running the entire suite:
 ```
 rake run
 ```
@@ -34,13 +35,22 @@ rake run_dev
 ```
 (supposed to reload services when code changes)
 
-Internally it will run the server as a rack application:
+Run the backend
+```
+puma
+```
+Alternatively, the server can be started as a rack application (only for development mode):
 ```
 rackup
 ```
 and the frontend code will be processed with (in server/presentation/view/ folder):
 ```
+cd server/presentation/view/
 webpack --watch --config webpack.config.js --mode development
+```
+or for production asset preparation:
+```
+webpack --config webpack.config.js --mode production
 ```
 ### Run tests
 #### Run all tests

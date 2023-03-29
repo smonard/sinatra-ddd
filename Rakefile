@@ -70,8 +70,7 @@ task :routes do
 end
 
 def print_pretty(routes_hash)
-  routes_hash.each do |main, sub|
-    print "#{main}  =>"
+  routes_hash.each do |_main, sub|
     sub.each do |controller, methods|
       puts "   #{controller}"
       methods.each do |method, occurences|
