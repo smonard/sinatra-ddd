@@ -3,7 +3,8 @@
 require 'dotenv/load'
 load 'config/db/database.rake'
 
-ENV['APP_ENV'] = ENV['RACK_ENV']
+environment = ENV['RACK_ENV'] || 'development'
+ENV['APP_ENV'] = ENV['RACK_ENV'] = environment
 
 task default: %w[run]
 

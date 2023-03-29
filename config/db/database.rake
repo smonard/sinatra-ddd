@@ -5,7 +5,8 @@ require 'yaml'
 require 'dotenv/load'
 
 namespace :db do
-  db_config = YAML.load(File.open('config/db/config.yml'))[ENV['RACK_ENV']]
+  environment = ENV['RACK_ENV'] || 'development'
+  db_config = YAML.load(File.open('config/db/config.yml'))[environment]
                   .merge('schema_search_path' => 'public')
 
   desc 'Create the database'

@@ -19,6 +19,31 @@ Aside from these layers, there are two important packages: `config`, and `server
 
 **Note:** The variables described in .env must be loaded before performing any operation. Only rake tasks load those variables automatically (`require 'dotfile/load'`).
 
+## Initial setup
+
+It is required to install the project dependencies:
+
+```
+bundle install
+```
+And for the Frontend
+```
+cd server/presentation/view
+```
+```
+npm install
+```
+
+The database also needs to be in place:
+```
+rake db:create
+```
+```
+and up-to-date:
+```
+rake db:migrate
+```
+
 ## Rake tasks
 
 Before running, ensure a .env file is present (See ```.env.example``` for details). Also, do not forget to run ```npm install``` in the front-end folder.
