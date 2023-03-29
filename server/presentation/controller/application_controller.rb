@@ -9,9 +9,9 @@ module Presentation
       include Logging::Loggable
 
       error StandardError do
-        error_message = env['sinatra.error'].message
-        logger.error error_message
-        'Sorry there was a nasty error - ' + error_message
+        error = env['sinatra.error']
+        logger.error "class=#{error.class} message=#{error.message.inspect} backtrace=#{error.backtrace[..5].join('#')}"
+        'Sorry there was a nasty error'
       end
 
       not_found do

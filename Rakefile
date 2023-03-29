@@ -23,7 +23,7 @@ task :runsys do
   sh "cd ./server/presentation/view && \
       ./node_modules/.bin/webpack --config webpack.config.js --mode #{ENV['APP_ENV']} && \
       cd -"
-  bundle exec 'puma'
+  bundle exec 'puma --log-requests'
 end
 
 task :rundev do

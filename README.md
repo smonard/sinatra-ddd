@@ -62,11 +62,11 @@ rake run_dev
 
 Run the backend
 ```
-puma
+puma --log-requests
 ```
 Alternatively, the server can be started as a rack application (only for development mode):
 ```
-rackup
+rackup -s puma
 ```
 and the frontend code will be processed with (in server/presentation/view/ folder):
 ```

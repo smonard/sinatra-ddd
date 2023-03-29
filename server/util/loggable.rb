@@ -19,7 +19,7 @@ module Logging
   Logging.appenders.stdout(
     'stdout',
     layout: Logging.layouts.pattern(
-      pattern: 'level=%-5l timespan=%d artifact=%c message=%m\n',
+      pattern: 'level=%-5l timespan=%d artifact=%c -> %m\n',
       color_scheme: 'custom'
     )
   )
